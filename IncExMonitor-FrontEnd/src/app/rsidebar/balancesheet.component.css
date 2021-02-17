@@ -1,0 +1,199 @@
+.resultpage{
+    position: absolute;
+    padding-top: 10px;
+    height: fit-content;
+    padding-left: 10px;
+    border-radius: 40px;
+    border-top-left-radius: 0px;
+    width: 600px;
+    text-align: center;
+}
+
+.resultpage form table{
+    width: 100%;
+}
+
+.resultTable{
+    width: 100%;
+    background-color: rgba(163, 118, 206, 0.308);
+    text-align: center;
+}
+::ng-deep .mat-sort-header-container {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-error{
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 72, 0, 0.74);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.error{
+    display: none;
+    color: rgba(255, 72, 0, 0.74);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.mat-tab-label{
+    color: rgb(50, 22, 66);
+    font-size: 25px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: rgba(192, 111, 192, 0.808);
+}
+
+.tablehead{
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.801);
+    /* align-content: center; */
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+
+.mat-tab-label.mat-tab-label-active{
+    color: rgb(15, 9, 19);    
+    background-color: rgb(203, 95, 236);
+}
+
+
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(155, 91, 131);
+    font-size: 30px;
+    height: 45px;
+    border-radius: 5px;
+    color: rgb(236, 177, 167);
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+mat-label{
+    font-size: 17px;
+    font-weight: 500;
+    color: moccasin;
+}
+
+mat-form-field input{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(185, 241, 121, 0.856);
+}
+
+.operation{
+        text-align: center;
+        width: 90%;
+        font-size: 20px;
+       color: navy;
+        font-weight: 400;
+}
+
+hr{ 
+    border-color: rgb(77, 77, 77);
+    border-width: 1.35px;
+}
+
+mat-paginator{
+    width: 100%;
+    background-color: rgba(79, 56, 99, 0.829);
+}
+
+
+
+.mat-header-cell {
+    flex-direction: row;
+    justify-content: space-around;
+}
+  
+  .mat-cell {
+    justify-content: space-around;
+  }
+
+  
+.footerrow{
+    font-size: 17px;
+    color: midnightblue;
+    font-weight: 550;
+    background-color: rgba(131, 92, 168, 0.856);
+    justify-content: center;
+}
+
+@media (max-width:768px){
+    .resultpage{
+       max-width:500px;
+    }
+}
+
+@media (max-width:530px){
+    .contain{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    .resultpage{
+        width: 100%;
+        min-width: 300px;
+        padding-left: 0px;
+        justify-content: center;
+    }
+    .resultTable, mat-paginator{
+        width: 100%;
+    }
+     .heading{
+    font-size: 16px;
+    height: 25px;
+    border-radius: 15px;
+    }
+    
+     mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type{
+         padding-left: 0px !important;
+     }
+     .mat-header-cell {
+        padding-left: 0;
+        font-size: 12px;
+    }
+     .mat-tab-label{
+         font-size: 13px;
+     }
+     .mat-cell{
+         font-size: 10px;
+     }
+     mat-form-field{
+        width: 100%
+    }
+    
+    mat-label{
+        font-size: 13px;
+        font-weight: 350;
+    }
+    
+    mat-form-field input,mat-form-field textarea{
+        font-size: 13px;
+        font-weight: 350;
+    }
+    
+    mat-error{
+        font-size: 8px;
+        font-weight: 300;
+    }
+
+    .operation{
+        width: 90%;
+        font-size: 13px;
+        font-weight: 400;
+    }
+    th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,33 @@
+<div id="login_register">
+<div class="wrap">
+    
+    <!-- <img src="../assets/login.png" draggable="false"> -->
+    <div class="panel">
+        <div class="mat-headline">LOGIN</div>
+        <div class="error" *ngIf="error!=null" id="er"><mat-icon>error</mat-icon>{{error|titlecase}}</div><br>
+    <form [formGroup]="loginForm" (ngSubmit)="signIn()" autocomplete="off">
+        <mat-form-field>
+            <mat-label>EMAIL/USERNAME</mat-label>
+            <input matInput formControlName="username" >
+            <mat-error>{{getErrorMsg("username") | uppercase}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>PASSWORD</mat-label>
+            <input matInput type="password" formControlName="password" >
+            <mat-error>{{getErrorMsg("password") | uppercase}}</mat-error>
+        </mat-form-field>
+        <br>
+            <!-- <div style="display: flex; justify-content: space-between;"><mat-checkbox formControlName="check" >Keep me sign-in</mat-checkbox>
+            <a class="anchor" (click)="openForgotPassDialog();">Forgot Password?</a>
+        </div> -->
+        <button class="submit" mat-raised-button [disabled]="showSpinner" color="warn"><img *ngIf="showSpinner else txt" style="width: 25px; height: 25px;" src="../../assets/25.gif">
+            <ng-template #txt>SIGN IN</ng-template></button>
+        <hr>
+        <div align="center">
+            <a [routerLink]="['/register']" routerLinkActive="active"  class="footer">New User?<br>
+            Sign Up Now</a>
+        </div>
+    </form>
+</div>
+</div>

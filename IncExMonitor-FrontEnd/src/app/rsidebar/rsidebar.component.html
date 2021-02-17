@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidebar">
+    <mat-sidenav #sidenav [mode]="modeofopen" [opened]="open">
+        <div class="rnavbar">
+            <div>
+                <mat-icon>home</mat-icon><br>MASTERS
+            </div><br>
+            <mat-divider></mat-divider>
+            <div class="btns">
+                <div class="opt1" matRipple [matRippleCentered]="'true'" routerLinkActive="active"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'"
+                    (click)="navigateTo('/dashboard/menu/expensecategory')"><a id="expcat"
+                        [routerLink]='["/dashboard/menu/expensecategory"]'>EXPENSECATEGORY</a>
+                </div>
+                <div class="opt2" matRipple [matRippleCentered]="'true'" routerLinkActive="active"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'"
+                    (click)="navigateTo('/dashboard/menu/incomecategory')"><a id="inccat"
+                        [routerLink]="['/dashboard/menu/incomecategory']">INCOMECATEGORY</a>
+                </div>
+                <div class="opt3" matRipple [matRippleCentered]="'true'" routerLinkActive="active"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'" (click)="navigateTo('/dashboard/menu/expenses')"><a
+                        [routerLink]="['/dashboard/menu/expenses']">EXPENSES</a></div>
+                <div class="opt4" matRipple routerLinkActive="active" [matRippleCentered]="'true'"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'" (click)="navigateTo('/dashboard/menu/income')">
+                    <a [routerLink]="['/dashboard/menu/income']">INCOME</a></div>
+                <div class="opt5" matRipple routerLinkActive="active" [matRippleCentered]="'true'"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'" (click)="navigateTo('/dashboard/menu/bankbook')"><a
+                        [routerLink]="['/dashboard/menu/bankbook']">BANKBOOK</a></div>
+                <div class="opt6" matRipple routerLinkActive="active" [matRippleCentered]="'true'"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'" (click)="navigateTo('/dashboard/menu/cashbook')"><a
+                        [routerLink]="['/dashboard/menu/cashbook']">CASHBOOK</a></div>
+                <div class="opt7" matRipple routerLinkActive="active" [matRippleCentered]="'true'"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'" (click)="navigateTo('/dashboard/menu/daybook')">
+                    <a [routerLink]="['/dashboard/menu/daybook']">DAYBOOK</a></div>
+                <div class="opt7" matRipple routerLinkActive="active" [matRippleCentered]="'true'"
+                    [matRippleColor]="'rgba(165, 138, 228, 0.493)'"
+                    (click)="navigateTo('/dashboard/menu/balancesheet')"><a
+                        [routerLink]="['/dashboard/menu/balancesheet']">BALANCESHEET</a>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="result">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

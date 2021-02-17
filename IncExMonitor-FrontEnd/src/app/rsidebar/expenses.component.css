@@ -1,0 +1,132 @@
+.resultpage{
+    position: absolute;
+    padding-top: 10px;
+    height: fit-content;
+    padding-left: 10px;
+    border-radius: 40px;
+    border-top-left-radius: 0px;
+    width: 600px;
+    text-align: center;
+}
+
+.resultpage form table{
+    width: 100%;
+    padding: 2%;
+}
+
+hr{ 
+    border-color: rgb(77, 77, 77);
+    border-width: 1.35px;
+}
+
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(155, 91, 131);
+    font-size: 30px;
+    height: 45px;
+    border-radius: 5px;
+    color: rgb(236, 177, 167);
+}
+
+mat-form-field{
+    width: 100%
+}
+
+mat-label{
+    font-size: 20px;
+    font-weight: 450;
+    color:moccasin;
+}
+
+mat-error{
+    display: block;
+    font-size: 12px;
+    color: crimson;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.error{
+    display: none;
+    color: rgba(255, 72, 0, 0.74);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+::ng-deep .mat-snack-bar-container {
+    color: rgb(204 171 171 / 87%)!important;
+     background: #281640!important;
+ }
+
+.resultpage form table{
+    width: 100%;
+}
+
+mat-form-field input,mat-form-field textarea{
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(185, 241, 121, 0.856);
+}
+
+.operation{
+    display: flex;
+    text-align: center;
+    width: 95%;
+    height: 50px;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    color: rgb(87, 230, 194);
+    font-weight: 450;
+}
+
+@media (max-width:768px){
+    .resultpage{
+       max-width: 500px;
+    }
+    .tablehead{
+        padding-left: 30px;
+    }
+    /* .resultpage form table{
+        width:400px
+    } */
+}
+
+@media (max-width:530px){
+    .contain{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    .resultpage{
+        width: 100%;
+        min-width: 300px;
+        padding-left: 0px;
+        justify-content: center;
+    }
+    .heading{
+        font-size: 16px;
+        height: 25px;
+        border-radius: 15px;
+        }
+        mat-label{
+            font-size: 13px;
+            font-weight: 350;
+        }
+        mat-form-field input,mat-form-field textarea{
+            font-size: 13px;
+            font-weight: 350;
+        }
+        mat-error{
+            font-size: 8px;
+            font-weight: 300;
+        }
+        .operation{
+            width: 90%;
+            font-size: 13px;
+            font-weight: 400;
+            height:25px;
+        }
+}

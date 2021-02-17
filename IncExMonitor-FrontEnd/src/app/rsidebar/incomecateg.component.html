@@ -1,0 +1,77 @@
+<div class="contain">
+    <div class="resultpage">
+    <form [formGroup]="incomeCat" (ngSubmit)="saveIncomeCateg();" autocomplete="false" autocomplete="off">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <div class="heading">INCOME CATEGORY</div>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>CATEGORY NAME</mat-label>
+                        <input matInput formControlName="categoryname" required>
+                        <mat-error>{{getErrorMsg('categoryname') | uppercase}}</mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>CATEGORY DETAILS</mat-label>
+                        <textarea matInput formControlName="categorydetails" required></textarea>
+                        <mat-error>{{getErrorMsg('categorydetails')| uppercase}}</mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" mat-raised-button [disabled]="showSpinner" type="submit" color="primary" class="operation"><img *ngIf="showSpinner" style="width: 25px; height: 25px;" src="../../assets/25.gif">SUBMIT</button>
+                </td>
+                <td>
+                    <button type="reset" #resetButton (click)="flag=null" [disabled]="showSpinner" color="primary" class="operation" mat-raised-button>CLEAR</button>
+                </td>
+            </tr>      
+        </table>
+    </form>
+    <hr>
+    <div style="height: fit-content;" class="ColumnHeader">
+        <table mat-table  [dataSource]="dataSource"  class="resultTable">
+            <ng-container matColumnDef="catname">
+                <th matHeaderCell *matHeaderCellDef='catname' class="tablehead"> CATEGORY NAME </th>
+                <td mat-cell *matCellDef="let doc">{{doc.incomeCategoryName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="catdet">
+                <th matHeaderCell *matHeaderCellDef='catdet' class="tablehead"> CATEGORY DETAILS </th>
+                <td mat-cell *matCellDef="let doc">{{doc.incomeCategoryDetails}}</td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th matHeaderCell *matHeaderCellDef="edit" class="tablehead"> EDIT </th>
+                <td mat-cell *matCellDef="let doc">
+                    <mat-icon matRipple [id]='doc.incomeCategoryId' (click)="editData($event)" [matRippleCentered]='true' [matRippleUnbounded]="true" [matRippleRadius]='20'
+                        color="basic" class="iconEvent">create</mat-icon>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th matHeaderCell *matHeaderCellDef='delete' class="tablehead"> DELETE </th>
+                <td mat-cell *matCellDef="let doc">
+                    <mat-icon matRipple [id]='doc.incomeCategoryId' (click)="deleteData($event)" [matRippleCentered]='true' [matRippleUnbounded]="true" [matRippleRadius]='20'
+                        color="basic" class="iconEvent">delete</mat-icon>
+                </td>
+            </ng-container>
+            <tr mat-header-row style="background-color: rgb(203, 95, 236);" *matHeaderRowDef="columnDef; sticky:true">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: columnDef;"></tr>
+        </table>
+    </div>
+    <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+    <img *ngIf="tableSpinner" src="../../assets/25.gif"></div>
+</div>

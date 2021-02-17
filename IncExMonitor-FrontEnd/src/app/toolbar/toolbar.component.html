@@ -1,0 +1,30 @@
+<div id="dashboard">
+    <mat-toolbar class="toolbar">
+        <div><span class="vline">IncExMonitor </span>&nbsp;<span class="marknav">{{heading | uppercase}}</span></div>
+        <div class="navbar1">
+            <div class="username">{{username | titlecase}}&nbsp;</div>
+            <div class="item1"><button class="options" (click)="callHome()" mat-button>HOME</button></div>
+            <div class="item2"><button class="options" (click)="callUpdate()" mat-button>UPDATE PROFILE</button></div>
+            <div class="item3"><button class="options" (click)="logoutUser()" mat-button>LOGOUT</button></div>
+        </div>
+    </mat-toolbar>
+    <mat-toolbar class="tlbr1">
+        <button  *ngIf="router.url.indexOf('menu')!=-1 && width < 768 else elhoicon" mat-button
+            style="background-color: transparent; color:rgb(248, 142, 192);">
+            <mat-icon (click)="rsidebar.toggleNav();" >more_vert</mat-icon>
+        </button>
+        <ng-template #elhoicon class="item1"><button class="options" (click)="callHome();" mat-button>
+                <mat-icon>menu</mat-icon>&nbsp;&nbsp;HOME
+            </button></ng-template>
+        <div *ngIf="width>425 ; else eicon" class="item2"><button class="options" (click)="callUpdate()"
+                mat-button>UPDATE PROFILE</button></div>
+            <ng-template #eicon><button class="options" (click)="callUpdate()" mat-button>
+                    <mat-icon>portrait</mat-icon>
+                </button>
+            </ng-template>
+        
+        <div class="item3"><button class="options" (click)="logoutUser()" mat-button>LOGOUT</button></div>
+    </mat-toolbar>
+    <router-outlet  *ngIf="width>765; else elshowchild"></router-outlet>
+    <ng-template #elshowchild><app-rsidebar></app-rsidebar></ng-template>
+</div>

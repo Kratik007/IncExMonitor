@@ -1,0 +1,50 @@
+<div class="contain">
+    <div class="container">
+        <div class="header">
+            UPDATE PROFILE
+        </div>
+        <div class="content">
+            <p *ngIf="error" style="color: rgb(189, 22, 22); display: flex;align-items: center;"><mat-icon>error</mat-icon>{{error|titlecase}}</p>
+            <ng-container>
+            <form  [formGroup]='updateUser' (ngSubmit)="updateUserDet()" autocomplete="off">
+                <mat-form-field appearance="outline">
+                    <mat-label>NAME</mat-label>
+                    <input matInput formControlName='name' required>
+                    <mat-error>{{getErrorMsg('name') | uppercase}}</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>MOBILE</mat-label>
+                    <input matInput formControlName="mobile" required>
+                    <mat-error>{{getErrorMsg('mobile') | uppercase}}</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>USERNAME</mat-label>
+                    <input matInput type="text" formControlName="username" required>
+                    <mat-error>{{getErrorMsg('username') | uppercase}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>EMAIL</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-error>{{getErrorMsg('email') | uppercase}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>PASSWORD</mat-label>
+                    <input [type]="show ? 'text' : 'password'" matInput formControlName="password"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                    <mat-icon matSuffix (mouseenter)="show=!show" (mouseleave)="show=!show">
+                        {{show?'visibility':'visibility_off'}}</mat-icon>
+                    <mat-error><span
+                            matTooltip="Password must be of min length 6 contain at least one special character a lowercase a upper case and a number"
+                            [matTooltipPosition]='"after"'> {{getErrorMsg('password') | uppercase}} <mat-icon>
+                                info_outline</mat-icon></span></mat-error>
+                </mat-form-field>
+                <button type="submit" [disabled]="spinner" mat-raised-button color="accent"><img *ngIf="spinner else but" style="width: 25px;height: 25px;" src="../../assets/25.gif"><ng-template #but>UPDATE</ng-template></button>&nbsp;&nbsp;&nbsp;
+                <button type="reset" [disabled]="spinner" mat-raised-button color="accent">RESET</button>
+            </form>
+            </ng-container>
+            <hr>
+        </div>
+    </div>
+</div>

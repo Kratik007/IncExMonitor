@@ -1,0 +1,156 @@
+<div class="contain">
+    <div class="resultpage">
+    <form [formGroup]="dayBook" (ngSubmit)="findRecord()" autocomplete="off">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <div class="heading">DAY BOOK</div>
+                    <br>
+                </td>
+            </tr>
+            <ng-container *ngIf="width > 430 ; else columnsd">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Date From (MM/DD/YYYY)</mat-label>
+                            <input matInput [max]="maxDate" formControlName="dateFrom" [matDatepicker]="picker1" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1 [disabled]="false"></mat-datepicker>
+                            <mat-error>{{getErrorMsg('dateFrom') | uppercase}}</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Date To (MM/DD/YYYY)</mat-label>
+                            <input matInput [max]="maxDate" hideIcon formControlName="dateTo" [matDatepicker]="picker" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker [disabled]="false"></mat-datepicker>
+                            <mat-error>{{getErrorMsg('dateTo') | uppercase}}</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" color="primary" [disabled]="tableSpinner" class="operation" mat-raised-button>SUBMIT</button>
+                    </td>
+                    <td>
+                        <button type="reset" color="primary" [disabled]="tableSpinner" (click)="getData(); resetForm();" class="operation" mat-raised-button>CLEAR</button>
+                    </td>
+                </tr>
+            </ng-container>
+            <ng-template #columnsd>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Date From (MM/DD/YYYY)</mat-label>
+                            <input matInput [max]="maxDate" formControlName="dateFrom" [matDatepicker]="picker1" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1 [disabled]="false"></mat-datepicker>
+                            <mat-error>{{getErrorMsg('dateFrom') | uppercase}}</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Date To (MM/DD/YYYY)</mat-label>
+                            <input matInput [max]="maxDate" hideIcon formControlName="dateTo" [matDatepicker]="picker" disabled>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker [disabled]="false"></mat-datepicker>
+                            <mat-error>{{getErrorMsg('dateTo') | uppercase}}</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 
+                        <button type="submit" color="primary" [disabled]="tableSpinner" class="operation" mat-raised-button>SUBMIT</button>
+                    </td>
+                    <td>
+                        <button type="reset" color="primary" [disabled]="tableSpinner" class="operation" (click)="getData(); resetForm();" mat-raised-button>CLEAR</button>
+                    </td>
+                    
+                </tr>
+            </ng-template>
+        </table>
+        <hr>
+    </form>
+    <mat-tab-group animationDuration="1000ms">
+        <mat-tab label="EXPENSES">
+            <mat-table #table1 matSort [dataSource]="expensesDataSource" class="resultTables">
+                <ng-container matColumnDef="accountname">
+                    <mat-header-cell  mat-sort-header *matHeaderCellDef="accountname"
+                        class="tablehead">ACCOUNT NAME
+                    </mat-header-cell>
+                    <mat-cell  *matCellDef="let element">{{element.acountName}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="date">
+                    <mat-header-cell mat-sort-header  class="tablehead"
+                        *matHeaderCellDef="date">DATE</mat-header-cell>
+                    <mat-cell *matCellDef="let element" >{{element.date | date:'dd-MMM-yyyy'}}
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="amount">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef="amount" class="tablehead">AMOUNT
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element" >{{element.amount}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="pay_recieveby">
+                    <mat-header-cell *matHeaderCellDef="pay_recieveby" class="tablehead">PAY BY
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.payedBy}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="remark">
+                    <mat-header-cell *matHeaderCellDef="remark" class="tablehead">REMARK
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.remark}}</mat-cell>
+                </ng-container>
+                <mat-header-row style="background-color: rgb(203, 95, 236);" *matHeaderRowDef="columnDef">
+                </mat-header-row>
+                <mat-row *matRowDef="let row;columns:columnDef"></mat-row>
+            </mat-table>
+            <mat-paginator #expensesPag class="paginator" [pageSize]="5" hidePageSize="true" showFirstLastButtons></mat-paginator>
+            <img *ngIf="tableSpinner" src="../../assets/25.gif">
+        </mat-tab>
+        <mat-tab label="INCOME">
+            <mat-table #table2 matSort [dataSource]="incomesDataSource" class="resultTables">
+                <ng-container matColumnDef="sno">
+                    <mat-header-cell *matHeaderCellDef='sno' class="tablehead">S.No.</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.sno}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="accountname">
+                    <mat-header-cell  mat-sort-header *matHeaderCellDef="accountname"
+                        class="tablehead">ACCOUNT NAME
+                    </mat-header-cell>
+                    <mat-cell  *matCellDef="let element">{{element.acountName}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="date">
+                    <mat-header-cell mat-sort-header  *matHeaderCellDef="date"
+                        class="tablehead">DATE</mat-header-cell>
+                    <mat-cell  *matCellDef="let element">{{element.date | date:'dd-MMM-yyyy'}}
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="amount">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef="amount" class="tablehead">AMOUNT
+                    </mat-header-cell>
+                    <mat-cell  *matCellDef="let element">{{element.amount}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="pay_recieveby">
+                    <mat-header-cell *matHeaderCellDef="pay_recieveby" class="tablehead">RECIEVE BY
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.receiveBy}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="remark">
+                    <mat-header-cell *matHeaderCellDef="remark" class="tablehead">REMARK
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.remark}}</mat-cell>
+                </ng-container>
+                <mat-header-row style="background-color: rgb(203, 95, 236);" *matHeaderRowDef="columnDef">
+                </mat-header-row>
+                <mat-row *matRowDef="let row;columns:columnDef"></mat-row>
+            </mat-table>
+            <mat-paginator #incomePag class="paginator" [pageSize]="5" hidePageSize="true" showFirstLastButtons></mat-paginator>
+            <img *ngIf="tableSpinner" src="../../assets/25.gif">
+        </mat-tab>
+    </mat-tab-group>
+</div>
+</div>

@@ -1,0 +1,100 @@
+#login_register {
+    background-attachment: fixed;
+    background-image: url("src/assets/background.jpg");
+    width: 100%;
+    background-position: center;
+    min-height: 100vh;
+    display:flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.panel {
+    background-color: rgba(0, 0, 0, 0.555);
+    border-radius: 10px;
+    box-shadow:1px 1px 10px 5px black;
+    width: 300px;
+    padding: 20px;
+}
+
+.error{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgb(236, 44, 44);
+    align-items: center;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 5px;
+}
+
+.panel mat-form-field,.panel button{    
+    width: 100%;
+}
+
+
+.panel .mat-headline{
+    color:rgba(140, 0, 255, 0.863);
+    font-size: 35px;
+    font-weight: 600;
+    text-shadow:0px -2px 0px rgb(128, 195, 240);
+    text-align: center;
+}
+
+.panel mat-label{
+        font-weight: 400;
+    font-size: 21px;
+    font-weight: 500;
+}
+.panel mat-form-field{
+    color: rgb(147, 130, 245);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.panel mat-checkbox {
+    color:rgba(255, 208, 0, 0.774);
+    font-size: 15px;
+}
+
+.panel .submit{
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 5%;
+}
+.panel .submit:hover{
+    background-color: lightcoral;
+}
+
+
+.anchor{
+    position: relative;
+    margin-left: 50px;  
+    font-size: 13px;
+    color:rgb(20, 240, 203);
+    cursor: pointer;
+}
+
+.anchor:focus,.anchor:hover{
+    color:rgb(67, 145, 132);
+}
+
+.footer{
+    font-size: 15px;
+    color:rgba(255, 199, 205, 0.74);
+}
+.footer:focus,.footer:hover{
+    color:rgba(243, 192, 81, 0.644)
+}
+
+hr{
+    border-color:  rgba(190, 72, 72, 0.753);
+}
+
+@media (max-width:400px){
+    .anchor{
+        font-size:12px;
+    }
+}

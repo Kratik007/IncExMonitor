@@ -1,0 +1,167 @@
+.resultpage{
+    position: absolute;
+    padding-top: 10px;
+    height: fit-content;
+    padding-left: 10px;
+    border-radius: 40px;
+    border-top-left-radius: 0px;
+    width: 600px;
+    text-align: center;
+}
+
+mat-error{
+    display: block;
+    font-size: 12px;
+    color: crimson;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.tablehead{
+    color: rgba(0, 0, 0, 0.801);
+}
+
+.error{
+    display: none;
+    color: rgba(255, 72, 0, 0.74);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.resultpage form table{
+    width: 100%;
+}
+
+.resultTable{
+    width: 100%;
+    background-color: rgba(163, 118, 206, 0.308);
+    /* justify-content:left; */
+}
+
+.mat-cell{
+    text-overflow:ellipsis;
+}
+
+::ng-deep .mat-snack-bar-container {
+    color: rgb(204 171 171 / 87%)!important;
+     background: #281640!important;
+ }
+
+hr{ 
+    border-color: rgb(77, 77, 77);
+    border-width: 1.35px;
+}
+
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(155, 91, 131);
+    font-size: 30px;
+    height: 45px;
+    border-radius: 5px;
+    color: rgb(236, 177, 167);
+}
+
+mat-form-field{
+    width: 100%
+}
+
+mat-label{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+mat-form-field input,mat-form-field textarea{
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(185, 241, 121, 0.856);
+}
+
+.operation{
+        text-align: center;
+        width: 90%;
+        font-size: 20px;
+        color: rgb(87, 230, 194);
+        font-weight: 500;
+}
+
+.iconEvent{
+    cursor: pointer;
+    color:pink;
+}
+.iconEvent:hover{
+    color:rgb(87, 63, 67);
+}
+
+mat-paginator{
+    width: 100%;
+    background-color: rgba(79, 56, 99, 0.829);
+}
+
+@media (max-width:768px){
+    .resultpage{
+       max-width: 500px;
+    }
+}
+
+@media (max-width:530px){
+    .contain{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    .resultpage{
+        width: 100%;
+        min-width: 300px;
+        padding-left: 0px;
+        justify-content: center;
+    }
+    .resultTable, mat-paginator{
+        width: 100% !important;
+    }
+     .heading{
+        font-size: 16px;
+        height: 25px;
+        border-radius: 15px;
+    }
+     mat-form-field{
+        width: 100%
+    }
+    mat-label{
+        font-size: 13px;
+        font-weight: 350;
+    }
+    mat-form-field input,mat-form-field textarea{
+        font-size: 13px;
+        font-weight: 350;
+    }
+    
+    mat-error{
+        font-size: 8px;
+        font-weight: 300;
+    }
+
+    .operation{
+        /* text-align: center; */
+        width: 90%;
+        font-size: 13px;
+        font-weight: 400;
+    }
+    th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+        font-size: 13px;
+    }
+    /* mat-table{
+        font-size: 13px !important;
+        font-weight: 300 !important;
+    } */
+
+}
+
+.mat-cell{
+  word-wrap: break-word;
+  min-width: 50px;
+}
+
+.mat-accent{
+  margin-bottom: 10px;}
